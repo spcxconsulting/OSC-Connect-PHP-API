@@ -7,7 +7,7 @@ This repository is designed to be useful for developers and for retrieval into t
 ## Current structure
 
 - `objects/` — human-readable object references.
-- `catalog/` — machine-readable object/property manifests.
+- `catalog/` — machine-readable object/property manifests and coverage status.
 - `examples/` — original PHP examples organised by object/use case.
 - `comparisons/` — machine-readable Connect PHP vs REST differences.
 - `guides/` — practical Connect PHP guidance.
@@ -28,14 +28,23 @@ The repository is moving toward a consistent per-object format containing:
 - machine-readable JSON for search/RAG ingestion
 - a Connect PHP vs REST comparison where a corresponding REST resource exists
 
-`Contact` is the first object expanded to this fuller format:
+### Contact
 
 - [`objects/contact.md`](objects/contact.md)
 - [`catalog/contact.json`](catalog/contact.json)
 - [`examples/contacts/`](examples/contacts/)
 - [`comparisons/contact.json`](comparisons/contact.json)
 
-See [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
+### Incident
+
+Incident is expanded using a version-qualified public Connect PHP class surface and current Oracle REST v1.4 cross-check. Later-version fields that cannot yet be proven in current RNCPHP are explicitly marked rather than guessed.
+
+- [`objects/incident.md`](objects/incident.md)
+- [`catalog/incident.json`](catalog/incident.json)
+- [`examples/incidents/`](examples/incidents/)
+- [`comparisons/incident.json`](comparisons/incident.json)
+
+See [`catalog/coverage-status.json`](catalog/coverage-status.json) for the completion ledger, [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology, and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
 
 ## Connect PHP vs REST
 
