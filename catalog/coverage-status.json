@@ -3,6 +3,7 @@
   "statusDefinitions": {
     "catalogued": "Object/resource is present in the baseline catalogue but has not yet been expanded into a complete RNCPHP reference.",
     "comprehensive": "RNCPHP properties, nested types, methods and original examples have been expanded and checked against the available public Connect PHP reference.",
+    "comprehensive-version-qualified": "The known RNCPHP surface has been expanded comprehensively from a version-qualified public Connect PHP source and cross-checked against a newer Oracle binding; later-version deltas remain explicitly flagged.",
     "comparison-partial": "A REST comparison exists but still contains entries requiring Connect PHP or REST verification.",
     "comparison-complete": "Connect PHP vs REST comparison has been checked across the documented surfaces used by this repository."
   },
@@ -27,7 +28,7 @@
     {"name":"EventSubscription","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"Holiday","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"IncidentResponse","reference":"catalogued","examples":"pending","restComparison":"pending"},
-    {"name":"Incident","reference":"catalogued","examples":"basic","restComparison":"pending"},
+    {"name":"Incident","reference":"comprehensive-version-qualified","examples":"comprehensive","restComparison":"comparison-partial"},
     {"name":"Mailbox","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"MarketingMailbox","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"MessageBase","reference":"catalogued","examples":"pending","restComparison":"pending"},
