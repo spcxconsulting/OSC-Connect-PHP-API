@@ -36,7 +36,7 @@
     {"name":"NamedID","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"Opportunity","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"OpportunityStatus","reference":"catalogued","examples":"pending","restComparison":"pending"},
-    {"name":"Organization","reference":"catalogued","examples":"basic","restComparison":"pending"},
+    {"name":"Organization","reference":"comprehensive-version-qualified","examples":"comprehensive","restComparison":"comparison-partial"},
     {"name":"PurchasedProduct","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"SalesProduct","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"SalesTerritory","reference":"catalogued","examples":"pending","restComparison":"pending"},
