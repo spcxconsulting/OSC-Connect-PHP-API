@@ -1,0 +1,41 @@
+{
+  "object": "AnswerVersion",
+  "status": "rest-first-binding-gap",
+  "connectPhp": {
+    "class": null,
+    "verification": "No first-class AnswerVersion class was found in the older public RNCPHP class surface used by this repository.",
+    "closestDocumentedPattern": "Older RNCPHP exposes version-adjacent behaviour through Answer fields such as AssignedSibling, SiblingAnswers, Question, Solution, PublishOnDate, ExpiresDate, StatusWithType and Links. These must not be treated as a one-to-one AnswerVersion binding."
+  },
+  "rest": {
+    "resource": "answerVersions",
+    "version": "v1.4",
+    "collectionPath": "/services/rest/connect/v1.4/answerVersions",
+    "operations": ["GET collection", "GET by id", "PATCH by id", "DELETE by id"]
+  },
+  "bindingDifferences": [
+    {"area":"resource model","connectPhp":"No first-class AnswerVersion class is verified in the older RNCPHP source used here.","rest":"AnswerVersion is a first-class REST resource.","status":"rest-first-class-rncphp-unverified"},
+    {"area":"creation","connectPhp":"Older RNCPHP creates/updates Answer objects and uses sibling/version-related Answer properties.","rest":"No POST /answerVersions operation is exposed; versions are managed through Answer/version lifecycle behaviour and existing AnswerVersion resources.","status":"binding-different"},
+    {"area":"read","connectPhp":"Use Answer and its sibling/version-adjacent properties in the verified legacy surface.","rest":"GET /answerVersions/{id} or GET /answerVersions.","status":"binding-different"},
+    {"area":"update","connectPhp":"Modify the relevant Answer object and save it in the verified legacy surface.","rest":"PATCH /answerVersions/{id}.","status":"binding-different"},
+    {"area":"delete","connectPhp":"No direct AnswerVersion destroy pattern is verified.","rest":"DELETE /answerVersions/{id}.","status":"rest-specific-operation"},
+    {"area":"lifecycle detail","connectPhp":"Older Answer fields expose publishing and sibling concepts but no verified VersionDetail object.","rest":"versionDetail exposes draftNote, draftTime, publishedTime, publishNote, state and unpublishedTime.","status":"rest-versioning-model-different"},
+    {"area":"answer relationship","connectPhp":"The Answer object is the primary verified knowledge object.","rest":"Each AnswerVersion references an Answer, while Answer also exposes an answerVersion reference.","status":"binding-different"},
+    {"area":"timestamps","connectPhp":"Older RNCPHP stubs use integer timestamps on Answer.","rest":"AnswerVersion uses REST date-time strings.","status":"binding-different"}
+  ],
+  "conceptComparisons": [
+    {"concept":"Parent answer","connectPhp":"Answer object itself","rest":"answer","status":"binding-different"},
+    {"concept":"Version lifecycle","connectPhp":"PublishOnDate / ExpiresDate / StatusWithType plus sibling-answer behaviour","rest":"versionDetail + publishOnDate + expiresDate + statusWithType","status":"model-different"},
+    {"concept":"Sibling/related content","connectPhp":"SiblingAnswers / AssignedSibling / Links","rest":"Answer.answerVersion plus AnswerVersion.relatedAnswers","status":"model-different"},
+    {"concept":"Question","connectPhp":"Answer.Question","rest":"AnswerVersion.question","status":"shared-concept-different-resource"},
+    {"concept":"Solution","connectPhp":"Answer.Solution","rest":"AnswerVersion.solution","status":"shared-concept-different-resource"},
+    {"concept":"Summary","connectPhp":"Answer.Summary","rest":"AnswerVersion.summary","status":"shared-concept-different-resource"},
+    {"concept":"Special response","connectPhp":null,"rest":"specialResponse","status":"rest-present-connect-php-unverified"},
+    {"concept":"Guided assistance","connectPhp":null,"rest":"guidedAssistance","status":"rest-present-connect-php-unverified"},
+    {"concept":"Version detail","connectPhp":null,"rest":"versionDetail","status":"rest-present-connect-php-unverified"}
+  ],
+  "notes": [
+    "Do not invent RNCPHP\\AnswerVersion in application code based on the REST resource name alone.",
+    "A future current Connect PHP reference or runtime metadata dump may allow this comparison to be tightened.",
+    "The repo intentionally preserves Answer and AnswerVersion as separate concepts because REST makes that distinction explicit."
+  ]
+}
