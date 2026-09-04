@@ -1,0 +1,49 @@
+{
+  "object": "Contact",
+  "namespaceExample": "RightNow\\Connect\\v1_4\\Contact",
+  "kind": "RNObject",
+  "officialReference": "https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Content/Connect%20for%20PHP%20API/RightNow%20Connect%20Object%20Model/Core/Contact.html",
+  "properties": [
+    {"name":"ID","type":"integer","access":"read-only"},
+    {"name":"LookupName","type":"string","access":"read-only"},
+    {"name":"CreatedTime","type":"integer timestamp","access":"read-only"},
+    {"name":"UpdatedTime","type":"integer timestamp","access":"read-only"},
+    {"name":"Address","type":"Address","access":"read-write"},
+    {"name":"Banner","type":"Banner","access":"read-write"},
+    {"name":"ChannelUsernames","type":"ChannelUsernameArray","access":"read-write"},
+    {"name":"ContactType","type":"NamedIDLabel","access":"read-write"},
+    {"name":"CRMModules","type":"CRMModules","access":"read-write"},
+    {"name":"CustomFields","type":"ContactCustomFields","access":"read-write","siteSpecific":true},
+    {"name":"Disabled","type":"boolean","access":"read-write"},
+    {"name":"Emails","type":"EmailArray","access":"read-write"},
+    {"name":"FileAttachments","type":"FileAttachmentCommonArray","access":"read-write"},
+    {"name":"Login","type":"string","access":"read-write"},
+    {"name":"MarketingSettings","type":"ContactMarketingSettings","access":"read-write"},
+    {"name":"Name","type":"PersonName","access":"read-write"},
+    {"name":"NameFurigana","type":"PersonName","access":"conditional"},
+    {"name":"NewPassword","type":"string","access":"write-only"},
+    {"name":"Notes","type":"NoteArray","access":"read-write"},
+    {"name":"Organization","type":"Organization","access":"read-write"},
+    {"name":"Phones","type":"PhoneArray","access":"read-write"},
+    {"name":"SalesSettings","type":"ContactSalesSettings","access":"read-write"},
+    {"name":"ServiceSettings","type":"ContactServiceSettings","access":"mixed"},
+    {"name":"Source","type":"NamedIDHierarchyOptList","access":"read-only"},
+    {"name":"Title","type":"string","access":"read-write"}
+  ],
+  "nestedTypes": {
+    "PersonName": ["First", "Last"],
+    "Address": ["Street", "City", "StateOrProvince", "PostalCode", "Country"],
+    "Email": ["Address", "AddressType"],
+    "Phone": ["Number", "PhoneType", "RawNumber"],
+    "CRMModules": ["Marketing", "Sales", "Service"],
+    "ContactMarketingSettings": ["ContactLists", "EmailFormat", "MarketingOptIn", "MarketingOrganizationName", "MarketingOrganizationNameAlt", "SurveyOptIn"],
+    "ContactSalesSettings": ["AcquiredDate", "SalesAccount"],
+    "ContactServiceSettings": ["AnswerNotifications", "CategoryNotifications", "ProductNotifications", "SLAInstances"]
+  },
+  "methods": ["ResetPassword", "fetch", "find", "first", "save", "destroy", "getMetadata", "getRelations"],
+  "notes": [
+    "Custom fields are site-specific and must be discovered from the target site metadata.",
+    "Menu/list IDs should be verified against the target site rather than assumed globally.",
+    "Descriptions in this repository are SPCX-authored summaries rather than copied Oracle documentation."
+  ]
+}
