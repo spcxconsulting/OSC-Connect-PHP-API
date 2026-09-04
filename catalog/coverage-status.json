@@ -1,18 +1,23 @@
 {
   "baseline": "Oracle B2C Service CCOM standard resource catalogue",
+  "baselineCount": 41,
+  "coveredCount": 5,
+  "remainingCount": 36,
   "statusDefinitions": {
-    "catalogued": "Object/resource is present in the baseline catalogue but has not yet been expanded into a complete RNCPHP reference.",
+    "catalogued": "Object/resource is present in the baseline catalogue but has not yet been expanded into a complete reference.",
     "comprehensive": "RNCPHP properties, nested types, methods and original examples have been expanded and checked against the available public Connect PHP reference.",
     "comprehensive-version-qualified": "The known RNCPHP surface has been expanded comprehensively from a version-qualified public Connect PHP source and cross-checked against a newer Oracle binding; later-version deltas remain explicitly flagged.",
+    "comprehensive-rest-first-rncphp-gap": "The current REST resource is comprehensively mapped, while the available older RNCPHP source does not verify a direct first-class class; the binding gap and closest RNCPHP patterns are documented explicitly.",
     "comparison-partial": "A REST comparison exists but still contains entries requiring Connect PHP or REST verification.",
-    "comparison-complete": "Connect PHP vs REST comparison has been checked across the documented surfaces used by this repository."
+    "comparison-complete": "Connect PHP vs REST comparison has been checked across the documented surfaces used by this repository.",
+    "binding-gap-documented": "The REST resource and known RNCPHP boundary have been documented, but a direct current Connect PHP equivalent cannot be asserted from available public evidence."
   },
   "objects": [
     {"name":"AccountGroup","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"Account","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"AnalyticsReportResult","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"AnalyticsReport","reference":"catalogued","examples":"pending","restComparison":"pending"},
-    {"name":"AnswerVersion","reference":"catalogued","examples":"pending","restComparison":"pending"},
+    {"name":"AnswerVersion","reference":"comprehensive-rest-first-rncphp-gap","examples":"comprehensive","restComparison":"binding-gap-documented"},
     {"name":"Answer","reference":"comprehensive-version-qualified","examples":"comprehensive","restComparison":"comparison-partial"},
     {"name":"AssetStatus","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"Asset","reference":"catalogued","examples":"pending","restComparison":"pending"},
