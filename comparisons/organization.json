@@ -1,0 +1,62 @@
+{
+  "object": "Organization",
+  "status": "partial-verified",
+  "connectPhp": {
+    "class": "RightNow\\Connect\\v1_4\\Organization",
+    "binding": "in-process PHP object API",
+    "versionQualification": "core surface reconstructed from public v1_1 generated stubs; examples target v1_4 namespace style"
+  },
+  "rest": {
+    "resource": "organizations",
+    "version": "v1.4",
+    "collectionPath": "/services/rest/connect/v1.4/organizations",
+    "binding": "HTTPS JSON REST API"
+  },
+  "bindingDifferences": [
+    {"area":"create","connectPhp":"Instantiate Organization and call save().","rest":"POST /organizations; current REST documentation requires name.","status":"binding-different"},
+    {"area":"read","connectPhp":"Use fetch/find/first or ROQL.","rest":"GET /organizations/{id} or collection GET with query parameters.","status":"binding-different"},
+    {"area":"update","connectPhp":"Modify properties and call save().","rest":"PATCH /organizations/{id}.","status":"binding-different"},
+    {"area":"delete","connectPhp":"Call destroy() where appropriate.","rest":"DELETE /organizations/{id}.","status":"binding-different"},
+    {"area":"relationships","connectPhp":"Parent and related staff/data are Connect PHP objects.","rest":"Relationships are resource references, normally specified using id or lookupName.","status":"binding-different"},
+    {"area":"timestamps","connectPhp":"Legacy Connect PHP surface exposes integer timestamps.","rest":"REST v1.4 exposes date/time strings.","status":"binding-different"},
+    {"area":"processing suppression","connectPhp":"RNObject supports SuppressRules, SuppressExternalEvents and SuppressAll flags.","rest":"Those PHP processing constants are not part of the REST binding.","status":"connect-php-specific"},
+    {"area":"hierarchy","connectPhp":"OrganizationHierarchy is read-only and Parent is the writable relationship in the legacy surface.","rest":"organizationHierarchy is returned as organization references while parent is the direct writable relationship.","status":"equivalent-concept"},
+    {"area":"file attachments","connectPhp":"FileAttachmentCommon objects can use setFile()/makeFile() helpers.","rest":"REST attachment payloads use HTTP/JSON representations including base64 data/form-data mechanisms.","status":"binding-different"}
+  ],
+  "propertyComparisons": [
+    {"concept":"ID","connectPhp":"ID","rest":"id","status":"equivalent"},
+    {"concept":"Lookup name","connectPhp":"LookupName","rest":"lookupName","status":"equivalent"},
+    {"concept":"Created time","connectPhp":"CreatedTime","rest":"createdTime","status":"binding-different","notes":"Timestamp representation differs."},
+    {"concept":"Updated time","connectPhp":"UpdatedTime","rest":"updatedTime","status":"binding-different","notes":"Timestamp representation differs."},
+    {"concept":"Addresses","connectPhp":"Addresses","rest":"addresses","status":"binding-different","notes":"TypedAddressArray vs REST address objects/resource representation."},
+    {"concept":"Banner","connectPhp":"Banner","rest":"banner","status":"equivalent-concept"},
+    {"concept":"CRM modules","connectPhp":"CRMModules","rest":"cRMModules","status":"binding-different","notes":"Equivalent structure with REST lower-camel binding casing."},
+    {"concept":"Custom fields","connectPhp":"CustomFields","rest":"customFields","status":"site-specific"},
+    {"concept":"File attachments","connectPhp":"FileAttachments","rest":"fileAttachments","status":"binding-different"},
+    {"concept":"Industry","connectPhp":"Industry","rest":"industry","status":"equivalent-concept"},
+    {"concept":"Login","connectPhp":"Login","rest":"login","status":"equivalent"},
+    {"concept":"Name","connectPhp":"Name","rest":"name","status":"equivalent"},
+    {"concept":"Name furigana","connectPhp":"NameFurigana","rest":"nameFurigana","status":"equivalent"},
+    {"concept":"New password","connectPhp":"NewPassword","rest":"newPassword","status":"equivalent","notes":"Write-only concept in both compared surfaces."},
+    {"concept":"Notes","connectPhp":"Notes","rest":"notes","status":"binding-different","notes":"NoteArray vs REST note objects."},
+    {"concept":"Number of employees","connectPhp":"NumberOfEmployees","rest":"numberOfEmployees","status":"equivalent"},
+    {"concept":"Organization hierarchy","connectPhp":"OrganizationHierarchy","rest":"organizationHierarchy","status":"binding-different","notes":"PHP OrganizationArray vs REST references."},
+    {"concept":"Parent organization","connectPhp":"Parent","rest":"parent","status":"binding-different","notes":"PHP Organization object vs REST organization reference."},
+    {"concept":"Sales settings","connectPhp":"SalesSettings","rest":"salesSettings","status":"equivalent-concept"},
+    {"concept":"Service settings","connectPhp":"ServiceSettings","rest":"serviceSettings","status":"equivalent-concept"},
+    {"concept":"Source","connectPhp":"Source","rest":"source","status":"equivalent-concept"},
+    {"concept":"External reference","connectPhp":null,"rest":"externalReference","status":"rest-present-connect-php-unverified","verification":"needs-current-connect-php-verification"},
+    {"concept":"Superseded by","connectPhp":null,"rest":"supersededBy","status":"rest-present-connect-php-unverified","verification":"needs-current-connect-php-verification"}
+  ],
+  "nestedComparisons": [
+    {"concept":"Address","connectPhp":"TypedAddress: AddressType, Street, City, StateOrProvince, PostalCode, Country","rest":"addresses entries expose equivalent address concepts","status":"equivalent-concept"},
+    {"concept":"Sales settings","connectPhp":"OrganizationSalesSettings: AcquiredDate, SalesAccount, TotalRevenue","rest":"salesSettings exposes acquiredDate, salesAccount, totalRevenue","status":"equivalent-concept"},
+    {"concept":"Service settings","connectPhp":"OrganizationServiceSettings.SLAInstances","rest":"serviceSettings.sLAInstances","status":"binding-different","notes":"REST casing and date representation differ; SLA list is read-only in older API versions."},
+    {"concept":"Monetary value","connectPhp":"MonetaryValue: Currency, ExchangeRate, Value","rest":"totalRevenue: currency, exchangeRate, value","status":"binding-different","notes":"Legacy PHP stub describes internal value semantics differently from modern REST JSON numeric representation; verify before porting calculations directly."}
+  ],
+  "notes": [
+    "REST-present/unverified fields must not be called REST-only until checked against the complete current Connect PHP v1_4 Organization reference.",
+    "Custom fields and NamedID/menu values remain site-specific.",
+    "The comparison tracks behavioural differences as well as property-name parity."
+  ]
+}
