@@ -1,0 +1,82 @@
+{
+  "object": "Answer",
+  "namespaceExample": "RightNow\\Connect\\v1_4\\Answer",
+  "kind": "RNObject",
+  "status": "comprehensive-version-qualified",
+  "officialConnectPhpReference": "https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Content/Connect%20for%20PHP%20API/RightNow%20Connect%20Object%20Model/Core/Answer.html",
+  "officialRestReference": "https://docs.oracle.com/en/cloud/saas/b2c-service/cxsvc/api-answers.html",
+  "sourceNotes": [
+    "The RNCPHP surface below is reconstructed from a generated public v1_1 Connect PHP class-stub set and cross-checked against Oracle REST v1.4 documentation.",
+    "Current REST fields absent from the legacy RNCPHP stub are kept separate and are not asserted to be unavailable in Connect PHP v1_4.",
+    "Descriptions and examples in this repository are SPCX-authored."
+  ],
+  "properties": [
+    {"name":"ID","type":"integer","access":"read-only-after-create","legacyConnectPhpVerified":true},
+    {"name":"LookupName","type":"string","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"CreatedTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"UpdatedTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"AccessLevels","type":"AccessLevelArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"AdminLastAccessTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"AnswerType","type":"NamedIDOptList","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"AssignedSibling","type":"Answer","access":"read-write-reference","legacyConnectPhpVerified":true},
+    {"name":"AssignedTo","type":"GroupAccount","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Banner","type":"Banner","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Categories","type":"ServiceCategoryArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"Comments","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"CommonAttachments","type":"FileAttachmentSharedArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"CommonComments","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"CustomFields","type":"AnswerCustomFields","access":"read-write","siteSpecific":true,"legacyConnectPhpVerified":true},
+    {"name":"ExpiresDate","type":"integer timestamp","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"FileAttachments","type":"FileAttachmentAnswerArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"Keywords","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Language","type":"NamedIDOptList","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"LastAccessTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"LastNotificationTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"Links","type":"AnswerLinkArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"Name","type":"string","access":"read-only-reference-number","legacyConnectPhpVerified":true},
+    {"name":"NextNotificationTime","type":"integer timestamp","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Notes","type":"NoteArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"OriginalReferenceNumber","type":"string","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"PositionInList","type":"NamedIDOptList","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Products","type":"ServiceProductArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"PublishOnDate","type":"integer timestamp","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Question","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"SiblingAnswers","type":"AnswerArray","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"Solution","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"StatusWithType","type":"StatusWithType","access":"read-write-status","legacyConnectPhpVerified":true},
+    {"name":"Summary","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"UpdatedByAccount","type":"Account","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"URL","type":"string","access":"read-write-when-url-type","legacyConnectPhpVerified":true}
+  ],
+  "currentRestFieldsNotVerifiedInLegacyConnectPhpStub": [
+    {"restName":"answerVersion","likelyConnectPhpConcept":"AnswerVersion","restAccess":"resource-reference","verification":"needs-current-connect-php-verification"},
+    {"restName":"guidedAssistance","likelyConnectPhpConcept":"GuidedAssistance","restAccess":"read-write-reference","verification":"needs-current-connect-php-verification"},
+    {"restName":"specialResponse","likelyConnectPhpConcept":"SpecialResponse","restAccess":"read-write","verification":"needs-current-connect-php-verification"},
+    {"restName":"versionDetail","likelyConnectPhpConcept":"VersionDetail","restAccess":"mixed","verification":"needs-current-connect-php-verification"}
+  ],
+  "legacyConnectPhpFieldsNotPresentInCurrentRestSchema": [
+    {"connectPhpName":"Comments","verification":"not-in-current-rest-answer-schema"},
+    {"connectPhpName":"CommonComments","verification":"not-in-current-rest-answer-schema"}
+  ],
+  "nestedTypes": {
+    "AccessLevel": ["ID", "LookupName"],
+    "GroupAccount": ["Account", "StaffGroup"],
+    "Banner": ["ImportanceFlag", "Text", "UpdatedByAccount", "UpdatedTime"],
+    "AnswerLink": ["LearnedLinkStrength", "ManualLinkStrength", "ToAnswer"],
+    "FileAttachmentAnswer": ["ContentType", "CreatedTime", "FileName", "ID", "Size", "UpdatedTime", "URL", "Description", "Name", "Disabled", "Indexed", "Private"],
+    "FileAttachmentShared": ["ContentType", "CreatedTime", "FileName", "ID", "Size", "UpdatedTime", "URL", "Disabled", "Names", "Private"],
+    "Note": ["Channel", "CreatedTime", "ID", "Text", "UpdatedTime"],
+    "StatusWithType": ["Status", "StatusType"]
+  },
+  "methods": ["fetch", "find", "first", "save", "destroy", "getMetadata", "getRelations"],
+  "processingConstants": ["ProcessingOptionsNone", "SuppressExternalEvents", "SuppressRules", "SuppressAll", "VALIDATE_KEYS_OFF"],
+  "importantBehaviour": [
+    "Current REST v1.4 requires answerType, language and summary when creating an answer.",
+    "Question, Solution and SpecialResponse are large knowledge-content fields; do not assume all answer types use all three.",
+    "Products and Categories are shared taxonomy relationships used for knowledge organisation and search refinement.",
+    "Sibling answer and answer-version behaviour is version-sensitive and should not be flattened into a single generic concept.",
+    "CustomFields is generated from the target site's configuration and cannot be fully enumerated in a generic repository.",
+    "AnswerType, Language, AccessLevels, PositionInList and status values should be verified against the target site rather than hard-coded as universal numeric IDs.",
+    "Processing suppression flags can bypass rules or external events and should only be used intentionally."
+  ]
+}
