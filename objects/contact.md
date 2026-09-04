@@ -116,6 +116,12 @@ Do not assume numeric AddressType IDs are identical across every implementation.
 
 Primary RNObjects expose processing options including values corresponding to normal processing, suppressing external events, suppressing rules, or suppressing both. Do not use suppression flags casually: bypassing rules/events can change expected business behaviour.
 
+## Connect PHP vs REST
+
+This repository tracks the two bindings separately rather than assuming that shared CCOM concepts make them identical.
+
+See [`comparisons/contact.json`](../comparisons/contact.json) for the machine-readable comparison. It records equivalent properties, casing/representation differences, REST operations, and fields that currently appear on the REST Contact schema but still need Connect PHP verification.
+
 ## Practical patterns
 
 See [`examples/contacts/README.md`](../examples/contacts/README.md) for original SPCX examples covering:
