@@ -1,65 +1,62 @@
-# OSC Connect PHP API
+# OSC Connect PHP API reference
 
-An independent, SPCX-authored developer reference and example library for **Oracle B2C Service / Oracle Service Cloud Connect PHP**.
+Independent SPCX Consulting reference material and original code examples for Oracle B2C Service Connect PHP.
 
-> This repository is not an Oracle documentation mirror and is not affiliated with or endorsed by Oracle.
+This repository is designed to be useful for developers and for retrieval into tools such as Ask.SPCX without mirroring Oracle's documentation text. API identifiers such as class names, method names and property names are catalogued so code can interoperate with the platform; descriptions and examples are independently written.
 
-## Goals
+## Current structure
 
-- provide practical, original PHP examples for common Connect PHP tasks;
-- maintain a searchable catalogue of the Connect Common Object Model (CCOM);
-- document implementation patterns, pitfalls and integration approaches in plain language;
-- provide clean source material that SPCX can reuse for its own search/RAG tooling.
+- `objects/` — human-readable object references.
+- `catalog/` — machine-readable object/property manifests.
+- `examples/` — original PHP examples organised by object/use case.
+- `guides/` — practical Connect PHP guidance.
+- `tools/` — metadata/introspection helpers.
 
-Oracle states that Connect PHP uses the **Connect Common Object Model**, the same common object model used by Connect Web Services. The object catalogue in this repository therefore starts from the public CCOM resource inventory and is expanded with Connect PHP-specific examples as each class is verified.
+## Comprehensive object coverage
 
-## Important copyright / attribution note
+The repository is moving toward a consistent per-object format containing:
 
-The explanations and examples in this repository are independently written for SPCX. Oracle product names, API names, class names, object names and property identifiers are referenced only as needed to describe interoperability with Oracle B2C Service.
+- every documented top-level property/element
+- scalar or Connect PHP type
+- read/write behaviour where known
+- nested object/list types
+- relevant methods/constants
+- original SPCX examples using fictional data
+- site-specific caveats
+- a direct Oracle reference link
+- machine-readable JSON for search/RAG ingestion
 
-This repository intentionally does **not** reproduce Oracle's documentation pages or copy Oracle's sample code wholesale.
+`Contact` is the first object expanded to this fuller format:
 
-For authoritative behaviour, supported fields, version availability and API contracts, use Oracle's documentation:
+- [`objects/contact.md`](objects/contact.md)
+- [`catalog/contact.json`](catalog/contact.json)
+- [`examples/contacts/`](examples/contacts/)
 
-- Connect PHP API Reference: https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Default.htm
-- Oracle B2C Service APIs & Schema: https://docs.oracle.com/en/cloud/saas/b2c-service/api.html
-- Oracle B2C Service REST/CCOM reference: https://docs.oracle.com/en/cloud/saas/b2c-service/cxsvc/toc.htm
+See [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the methodology.
 
-## Repository layout
+## Metadata verification
 
-```text
-catalog/
-  standard-ccom-objects.json   Machine-readable object inventory
+Connect PHP exposes metadata that can be used to verify the object model against a real Oracle B2C Service site. This is useful because customer sites have their own custom fields and platform versions may differ.
 
-objects/
-  *.md                         One SPCX-authored page per standard CCOM resource
-
-examples/
-  contacts/
-  incidents/
-  organizations/
-  roql/
-
-guides/
-  getting-started.md
-  object-model.md
-  copyright-and-sources.md
-```
-
-## Namespace used in examples
-
-Most examples use:
+Use:
 
 ```php
-use RightNow\Connect\v1_4 as RNCPHP;
+$metadata = RNCPHP\Contact::getMetadata();
+$relations = RNCPHP\Contact::getRelations();
 ```
 
-Your Oracle B2C Service site or Custom Process Model may require a different supported Connect version. Keep the version declaration consistent with the environment in which the script runs.
+A generic helper is included at [`tools/dump-object-metadata.php`](tools/dump-object-metadata.php).
 
-## Status
+## Official Oracle documentation
 
-This is an initial reference seed. The CCOM inventory is intentionally broader than the set of classes for which this repository currently provides verified Connect PHP code examples. Each object page carries a verification status so we can expand it without guessing.
+Connect PHP API reference:
 
-## Licence
+https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Default.htm
 
-SPCX-authored code and text in this repository are provided under the MIT licence. That licence applies only to material authored in this repository; it does not grant rights to Oracle documentation, software or trademarks.
+Oracle remains the authoritative source for supported platform behaviour.
+
+## Copyright / independence
+
+This is an independent SPCX Consulting project and is not an Oracle publication. Oracle product names and API identifiers are used for identification/interoperability. Oracle documentation prose and Oracle sample programs are not intended to be republished here.
+
+See [`guides/copyright-and-sources.md`](guides/copyright-and-sources.md).
