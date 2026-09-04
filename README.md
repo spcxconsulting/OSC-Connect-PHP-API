@@ -9,6 +9,7 @@ This repository is designed to be useful for developers and for retrieval into t
 - `objects/` — human-readable object references.
 - `catalog/` — machine-readable object/property manifests.
 - `examples/` — original PHP examples organised by object/use case.
+- `comparisons/` — machine-readable Connect PHP vs REST differences.
 - `guides/` — practical Connect PHP guidance.
 - `tools/` — metadata/introspection helpers.
 
@@ -25,14 +26,22 @@ The repository is moving toward a consistent per-object format containing:
 - site-specific caveats
 - a direct Oracle reference link
 - machine-readable JSON for search/RAG ingestion
+- a Connect PHP vs REST comparison where a corresponding REST resource exists
 
 `Contact` is the first object expanded to this fuller format:
 
 - [`objects/contact.md`](objects/contact.md)
 - [`catalog/contact.json`](catalog/contact.json)
 - [`examples/contacts/`](examples/contacts/)
+- [`comparisons/contact.json`](comparisons/contact.json)
 
-See [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the methodology.
+See [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
+
+## Connect PHP vs REST
+
+Connect PHP and Connect REST share CCOM concepts, but this repository does not assume the bindings are identical. Per-object comparisons record field availability, naming/representation differences, access differences, special methods/actions, query patterns and binding-specific behaviour.
+
+This is intended to highlight practical differences developers encounter when moving between RNCPHP and REST rather than presenting the two APIs as interchangeable.
 
 ## Metadata verification
 
@@ -52,6 +61,10 @@ A generic helper is included at [`tools/dump-object-metadata.php`](tools/dump-ob
 Connect PHP API reference:
 
 https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Default.htm
+
+REST API for Oracle B2C Service:
+
+https://docs.oracle.com/en/cloud/saas/b2c-service/cxsvc/index.html
 
 Oracle remains the authoritative source for supported platform behaviour.
 
