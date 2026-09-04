@@ -13,7 +13,7 @@
     {"name":"AnalyticsReportResult","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"AnalyticsReport","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"AnswerVersion","reference":"catalogued","examples":"pending","restComparison":"pending"},
-    {"name":"Answer","reference":"catalogued","examples":"pending","restComparison":"pending"},
+    {"name":"Answer","reference":"comprehensive-version-qualified","examples":"comprehensive","restComparison":"comparison-partial"},
     {"name":"AssetStatus","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"Asset","reference":"catalogued","examples":"pending","restComparison":"pending"},
     {"name":"BulkExtractResult","reference":"catalogued","examples":"pending","restComparison":"pending"},
