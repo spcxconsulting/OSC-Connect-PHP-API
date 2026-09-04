@@ -1,0 +1,82 @@
+{
+  "object": "Contact",
+  "status": "partial-verified",
+  "connectPhp": {
+    "class": "RightNow\\Connect\\v1_4\\Contact",
+    "binding": "in-process PHP object API"
+  },
+  "rest": {
+    "resource": "contacts",
+    "version": "v1.4",
+    "collectionPath": "/services/rest/connect/v1.4/contacts",
+    "binding": "HTTPS JSON REST API"
+  },
+  "bindingDifferences": [
+    {
+      "area": "create",
+      "connectPhp": "Instantiate Contact and persist with save().",
+      "rest": "POST to /contacts.",
+      "status": "binding-different"
+    },
+    {
+      "area": "read",
+      "connectPhp": "Use object lookup/fetch/query patterns.",
+      "rest": "GET /contacts/{id} or GET /contacts with query parameters.",
+      "status": "binding-different"
+    },
+    {
+      "area": "update",
+      "connectPhp": "Modify object properties and call save().",
+      "rest": "PATCH /contacts/{id}.",
+      "status": "binding-different"
+    },
+    {
+      "area": "delete",
+      "connectPhp": "Destroy the RNObject where supported.",
+      "rest": "DELETE /contacts/{id}.",
+      "status": "binding-different"
+    },
+    {
+      "area": "password reset",
+      "connectPhp": "Contact exposes password-reset behaviour through the PHP object API.",
+      "rest": "POST /contacts/{id}/resetPassword.",
+      "status": "binding-different"
+    }
+  ],
+  "propertyComparisons": [
+    {"concept":"ID","connectPhp":"ID","rest":"id","status":"equivalent"},
+    {"concept":"Lookup name","connectPhp":"LookupName","rest":"lookupName","status":"equivalent"},
+    {"concept":"Created time","connectPhp":"CreatedTime","rest":"createdTime","status":"equivalent"},
+    {"concept":"Updated time","connectPhp":"UpdatedTime","rest":"updatedTime","status":"equivalent"},
+    {"concept":"Address","connectPhp":"Address","rest":"address","status":"equivalent"},
+    {"concept":"Banner","connectPhp":"Banner","rest":"banner","status":"equivalent"},
+    {"concept":"Channel usernames","connectPhp":"ChannelUsernames","rest":"channelUsernames","status":"equivalent"},
+    {"concept":"Contact type","connectPhp":"ContactType","rest":"contactType","status":"equivalent"},
+    {"concept":"CRM modules","connectPhp":"CRMModules","rest":"cRMModules","status":"binding-different","notes":"REST schema uses lower-camel binding casing."},
+    {"concept":"Custom fields","connectPhp":"CustomFields","rest":"customFields","status":"site-specific"},
+    {"concept":"Disabled","connectPhp":"Disabled","rest":"disabled","status":"equivalent"},
+    {"concept":"Emails","connectPhp":"Emails","rest":"emails","status":"equivalent"},
+    {"concept":"File attachments","connectPhp":"FileAttachments","rest":"fileAttachments","status":"equivalent"},
+    {"concept":"Login","connectPhp":"Login","rest":"login","status":"equivalent"},
+    {"concept":"Marketing settings","connectPhp":"MarketingSettings","rest":"marketingSettings","status":"equivalent"},
+    {"concept":"Name","connectPhp":"Name","rest":"name","status":"equivalent"},
+    {"concept":"Name furigana","connectPhp":"NameFurigana","rest":"nameFurigana","status":"equivalent"},
+    {"concept":"New password","connectPhp":"NewPassword","rest":"newPassword","status":"equivalent","notes":"Write-only in both compared surfaces."},
+    {"concept":"Notes","connectPhp":"Notes","rest":"notes","status":"equivalent"},
+    {"concept":"Organization","connectPhp":"Organization","rest":"organization","status":"equivalent"},
+    {"concept":"Phones","connectPhp":"Phones","rest":"phones","status":"equivalent"},
+    {"concept":"Sales settings","connectPhp":"SalesSettings","rest":"salesSettings","status":"equivalent"},
+    {"concept":"Service settings","connectPhp":"ServiceSettings","rest":"serviceSettings","status":"equivalent"},
+    {"concept":"Source","connectPhp":"Source","rest":"source","status":"equivalent"},
+    {"concept":"Title","connectPhp":"Title","rest":"title","status":"equivalent"},
+    {"concept":"External reference","connectPhp":null,"rest":"externalReference","status":"rest-only","verification":"needs-connect-php-verification"},
+    {"concept":"OpenID accounts","connectPhp":null,"rest":"openIDAccounts","status":"rest-only","verification":"needs-connect-php-verification"},
+    {"concept":"Password email expiration","connectPhp":null,"rest":"passwordEmailExpirationTime","status":"rest-only","verification":"needs-connect-php-verification"},
+    {"concept":"Password expiration","connectPhp":null,"rest":"passwordExpirationTime","status":"rest-only","verification":"needs-connect-php-verification"},
+    {"concept":"Superseded by","connectPhp":null,"rest":"supersededBy","status":"rest-only","verification":"needs-connect-php-verification"}
+  ],
+  "notes": [
+    "REST-only entries are provisional until checked against the complete public Connect PHP Contact reference.",
+    "Site-specific custom fields and list/menu values must not be assumed to be portable across customer environments."
+  ]
+}
