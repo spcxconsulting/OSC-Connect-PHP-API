@@ -53,6 +53,15 @@ Organization is expanded using the same version-qualified approach, including ty
 - [`examples/organizations/`](examples/organizations/)
 - [`comparisons/organization.json`](comparisons/organization.json)
 
+### Answer
+
+Answer is expanded with knowledge-content fields, access levels, assignment, products/categories, sibling and related-answer behaviour, publishing/expiry scheduling, notifications, ranking, notes, answer-specific/shared attachments, and the REST answer-versioning differences.
+
+- [`objects/answer.md`](objects/answer.md)
+- [`catalog/answer.json`](catalog/answer.json)
+- [`examples/answers/`](examples/answers/)
+- [`comparisons/answer.json`](comparisons/answer.json)
+
 See [`catalog/coverage-status.json`](catalog/coverage-status.json) for the completion ledger, [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology, and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
 
 ## Connect PHP vs REST
