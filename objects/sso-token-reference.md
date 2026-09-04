@@ -4,13 +4,13 @@
 
 ## SPCX summary
 
-Single sign-on token reference.
+Reference information associated with single sign-on token handling in Oracle B2C Service.
 
 ## Connect PHP status
 
-CCOM resource catalogued; Connect PHP class/property mapping still to be verified.
+CCOM resource catalogued; Connect PHP class/property mapping still to be verified for the target version.
 
-This page intentionally does not reproduce Oracle's field descriptions or sample code. As this reference is expanded, properties and methods will be documented in original language and checked against the relevant Connect PHP version.
+This page intentionally does not reproduce Oracle's documentation or sample code.
 
 ## Official reference
 
