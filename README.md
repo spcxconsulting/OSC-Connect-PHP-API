@@ -15,6 +15,8 @@ This repository is designed to be useful for developers and for retrieval into t
 
 ## Comprehensive object coverage
 
+The current baseline contains 41 CCOM resources. Five are now expanded and 36 remain. Not every remaining entry is a full CRUD-style RNCPHP object; some are helper, reference, result or binding-specific resources.
+
 The repository is moving toward a consistent per-object format containing:
 
 - every documented top-level property/element
@@ -61,6 +63,15 @@ Answer is expanded with knowledge-content fields, access levels, assignment, pro
 - [`catalog/answer.json`](catalog/answer.json)
 - [`examples/answers/`](examples/answers/)
 - [`comparisons/answer.json`](comparisons/answer.json)
+
+### AnswerVersion
+
+AnswerVersion is documented as a REST-first CCOM resource with an explicit RNCPHP binding gap. Oracle REST v1.4 exposes it as a separate resource, while the older public RNCPHP surface used by this project does not provide enough evidence to assert a first-class `RNCPHP\AnswerVersion` class. The repo therefore documents REST-native version lifecycle behaviour alongside the closest verified older `RNCPHP\Answer` patterns without inventing a direct class mapping.
+
+- [`objects/answer-version.md`](objects/answer-version.md)
+- [`catalog/answer-version.json`](catalog/answer-version.json)
+- [`examples/answer-versions/`](examples/answer-versions/)
+- [`comparisons/answer-version.json`](comparisons/answer-version.json)
 
 See [`catalog/coverage-status.json`](catalog/coverage-status.json) for the completion ledger, [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology, and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
 
