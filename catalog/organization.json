@@ -1,0 +1,61 @@
+{
+  "object": "Organization",
+  "namespaceExample": "RightNow\\Connect\\v1_4\\Organization",
+  "kind": "RNObject",
+  "status": "comprehensive-version-qualified",
+  "officialConnectPhpReference": "https://documentation.custhelp.com/euf/assets/devdocs/unversioned/Connect_PHP/Content/Connect%20for%20PHP%20API/RightNow%20Connect%20Object%20Model/Core/Organization.html",
+  "officialRestReference": "https://docs.oracle.com/en/cloud/saas/b2c-service/cxsvc/api-organizations.html",
+  "sourceNotes": [
+    "The RNCPHP surface below is reconstructed from a generated public v1_1 Connect PHP class-stub set and cross-checked against Oracle REST v1.4 CCOM documentation.",
+    "Current REST fields absent from the legacy RNCPHP stub are kept separate and are not asserted to be unavailable in Connect PHP v1_4.",
+    "Descriptions and examples in this repository are SPCX-authored."
+  ],
+  "properties": [
+    {"name":"ID","type":"integer","access":"read-only-after-create","legacyConnectPhpVerified":true},
+    {"name":"LookupName","type":"string","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"CreatedTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"UpdatedTime","type":"integer timestamp","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"Addresses","type":"TypedAddressArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"Banner","type":"Banner","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"CRMModules","type":"CRMModules","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"CustomFields","type":"OrganizationCustomFields","access":"read-write","siteSpecific":true,"legacyConnectPhpVerified":true},
+    {"name":"FileAttachments","type":"FileAttachmentCommonArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"Industry","type":"NamedIDOptList","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Login","type":"string","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"Name","type":"string","access":"read-write-required-on-create","legacyConnectPhpVerified":true},
+    {"name":"NameFurigana","type":"string","access":"conditional-read-write","legacyConnectPhpVerified":true},
+    {"name":"NewPassword","type":"string","access":"write-only","legacyConnectPhpVerified":true},
+    {"name":"Notes","type":"NoteArray","access":"read-write-list","legacyConnectPhpVerified":true},
+    {"name":"NumberOfEmployees","type":"integer","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"OrganizationHierarchy","type":"OrganizationArray","access":"read-only","legacyConnectPhpVerified":true},
+    {"name":"Parent","type":"Organization","access":"read-write","legacyConnectPhpVerified":true},
+    {"name":"SalesSettings","type":"OrganizationSalesSettings","access":"mixed","legacyConnectPhpVerified":true},
+    {"name":"ServiceSettings","type":"OrganizationServiceSettings","access":"mixed","legacyConnectPhpVerified":true},
+    {"name":"Source","type":"NamedIDHierarchyOptList","access":"read-only","legacyConnectPhpVerified":true}
+  ],
+  "currentRestFieldsNotVerifiedInLegacyConnectPhpStub": [
+    {"restName":"externalReference","likelyConnectPhpConcept":"ExternalReference","restAccess":"read-write","verification":"needs-current-connect-php-verification"},
+    {"restName":"supersededBy","likelyConnectPhpConcept":"SupersededBy","restAccess":"read-write-reference","verification":"needs-current-connect-php-verification"}
+  ],
+  "nestedTypes": {
+    "TypedAddress": ["AddressType", "Street", "City", "StateOrProvince", "PostalCode", "Country"],
+    "Banner": ["ImportanceFlag", "Text", "UpdatedByAccount", "UpdatedTime"],
+    "CRMModules": ["Marketing", "Sales", "Service"],
+    "OrganizationSalesSettings": ["AcquiredDate", "SalesAccount", "TotalRevenue"],
+    "MonetaryValue": ["Currency", "ExchangeRate", "Value"],
+    "OrganizationServiceSettings": ["SLAInstances"],
+    "SLAInstance": ["ActiveDate", "ExpireDate", "NameOfSLA", "RemainingFromChat", "RemainingFromCSR", "RemainingFromEmail", "RemainingFromWeb", "RemainingTotal", "StateOfSLA"],
+    "Note": ["Channel", "CreatedTime", "ID", "Text", "UpdatedTime"],
+    "FileAttachmentCommon": ["ContentType", "CreatedTime", "FileName", "ID", "Size", "UpdatedTime", "URL", "Description", "Name"]
+  },
+  "methods": ["fetch", "find", "first", "save", "destroy", "getMetadata", "getRelations"],
+  "processingConstants": ["ProcessingOptionsNone", "SuppressExternalEvents", "SuppressRules", "SuppressAll", "VALIDATE_KEYS_OFF"],
+  "importantBehaviour": [
+    "Name is required when creating an organization through the current REST binding and should be treated as the primary human-readable business name in generic examples.",
+    "CustomFields is generated from the target site's configuration and cannot be fully enumerated in a generic repository.",
+    "OrganizationHierarchy is derived/read-only in the legacy Connect PHP surface; set Parent rather than trying to write the hierarchy directly.",
+    "AcquiredDate and SLAInstances are read-only in the legacy Connect PHP surface.",
+    "AddressType, Industry, currencies and other NamedID-style values should be verified against the target site rather than hard-coded as universal numeric IDs.",
+    "Processing suppression flags can bypass rules or external events and should only be used intentionally."
+  ]
+}
