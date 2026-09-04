@@ -44,6 +44,15 @@ Incident is expanded using a version-qualified public Connect PHP class surface 
 - [`examples/incidents/`](examples/incidents/)
 - [`comparisons/incident.json`](comparisons/incident.json)
 
+### Organization
+
+Organization is expanded using the same version-qualified approach, including typed addresses, parent hierarchy, CRM module flags, notes, attachments, sales settings, SLA/service settings and a REST comparison.
+
+- [`objects/organization.md`](objects/organization.md)
+- [`catalog/organization.json`](catalog/organization.json)
+- [`examples/organizations/`](examples/organizations/)
+- [`comparisons/organization.json`](comparisons/organization.json)
+
 See [`catalog/coverage-status.json`](catalog/coverage-status.json) for the completion ledger, [`guides/comprehensive-object-reference.md`](guides/comprehensive-object-reference.md) for the object-reference methodology, and [`guides/connect-php-vs-rest.md`](guides/connect-php-vs-rest.md) for the API comparison methodology.
 
 ## Connect PHP vs REST
